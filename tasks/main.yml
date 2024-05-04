@@ -1,0 +1,13 @@
+- name: install apache server
+  yum:
+    name: httpd
+    state: present
+- name: start apache service 
+  service:
+    name: httpd
+    state: started
+- name: copy src file and give permission
+  copy:
+    src: index.html
+    dest: /var/www/html/index.html
+    mode: '777'    
